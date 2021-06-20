@@ -16,7 +16,7 @@ const NavItem = styled.li<{ menu?: any }>`
   ${({ menu }) =>
     menu &&
     css`
-      ${tw`mb-3 text-xl text-white focus:text-white`}
+      ${tw`mb-3 text-xl text-black focus:text-white`}
     `}
 `;
 
@@ -28,16 +28,16 @@ const NavItems = () => {
       <Menu right styles={menuStyles}>
         <ListContainer>
           <NavItem menu>
-            <a href="">Home</a>
+            <a href="/">Home</a>
           </NavItem>
           <NavItem menu>
-            <a href="">Cars</a>
+            <a href="/">Cars</a>
           </NavItem>
           <NavItem menu>
-            <a href="">Services</a>
+            <a href="/">Services</a>
           </NavItem>
           <NavItem menu>
-            <a href="">Contact Us</a>
+            <a href="/">Contact Us</a>
           </NavItem>
         </ListContainer>
       </Menu>
@@ -45,17 +45,17 @@ const NavItems = () => {
   }
   return (
     <ListContainer>
-      <NavItem>
-        <a href="">Home</a>
+      <NavItem menu>
+        <a href="/">Home</a>
       </NavItem>
-      <NavItem>
-        <a href="">Cars</a>
+      <NavItem menu>
+        <a href="/">Cars</a>
       </NavItem>
-      <NavItem>
-        <a href="">Services</a>
+      <NavItem menu>
+        <a href="/">Services</a>
       </NavItem>
-      <NavItem>
-        <a href="">Contact Us</a>
+      <NavItem menu>
+        <a href="/">Contact Us</a>
       </NavItem>
     </ListContainer>
   );
