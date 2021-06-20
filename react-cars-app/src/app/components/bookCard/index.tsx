@@ -4,10 +4,9 @@ import styled from "styled-components";
 import Calendar from "react-calendar";
 import tw from "twin.macro";
 import "react-calendar/dist/Calendar.css";
+import { useState } from "react";
 import Button from "../button";
 import Marginer from "../marginer";
-import { useState } from "react";
-import { SCREENS } from "../responsive";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 
 const CardContainer = styled.div`
