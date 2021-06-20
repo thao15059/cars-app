@@ -7,16 +7,6 @@ interface IButtonProps {
   text: string;
 }
 
-const Button = (props: IButtonProps) => {
-  const { theme, text } = props;
-
-  return theme === "filled" ? (
-    <FilledButton>{text}</FilledButton>
-  ) : (
-    <OutlinedButton>{text}</OutlinedButton>
-  );
-};
-
 const BaseButton = styled.button`
   ${tw`
     pl-5
@@ -59,5 +49,15 @@ const FilledButton = styled(BaseButton)`
     hover:border-transparent
   `}
 `;
+
+const Button = (props: IButtonProps) => {
+  const { theme, text } = props;
+
+  return theme === "filled" ? (
+    <FilledButton>{text}</FilledButton>
+  ) : (
+    <OutlinedButton>{text}</OutlinedButton>
+  );
+};
 
 export default Button;

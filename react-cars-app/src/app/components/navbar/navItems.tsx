@@ -4,7 +4,7 @@ import tw from "twin.macro";
 import { slide as Menu } from "react-burger-menu";
 import { useMediaQuery } from "react-responsive";
 import { SCREENS } from "../responsive";
-import menuStyles from "./menuStyle";
+import menuStyles from "./menuStyles";
 
 const ListContainer = styled.ul`
   ${tw`flex list-none `}
@@ -16,7 +16,7 @@ const NavItem = styled.li<{ menu?: any }>`
   ${({ menu }) =>
     menu &&
     css`
-      ${tw`mb-3 text-xl text-black focus:text-white`}
+      ${tw`mb-3 text-xl text-white focus:text-white`}
     `}
 `;
 
@@ -45,16 +45,16 @@ const NavItems = () => {
   }
   return (
     <ListContainer>
-      <NavItem menu>
+      <NavItem>
         <a href="/">Home</a>
       </NavItem>
-      <NavItem menu>
+      <NavItem>
         <a href="/">Cars</a>
       </NavItem>
-      <NavItem menu>
+      <NavItem>
         <a href="/">Services</a>
       </NavItem>
-      <NavItem menu>
+      <NavItem>
         <a href="/">Contact Us</a>
       </NavItem>
     </ListContainer>
