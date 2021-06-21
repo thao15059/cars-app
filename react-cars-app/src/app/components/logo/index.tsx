@@ -3,6 +3,12 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 import CardLogoImg from "../../../assets/images/car-logo.png";
+import CardLogoDarkImg from "../../../assets/images/car-logo-dark.png";
+
+interface ILogoProps {
+  color?: "white" | "black";
+  bgColor?: "white" | "dark";
+}
 
 const LogoContainer = styled.div`
   ${tw`flex items-center `}
@@ -10,6 +16,7 @@ const LogoContainer = styled.div`
 
 const LogoText = styled.div`
   ${tw`m-1 text-xl font-bold text-black md:text-2xl`}
+  ${({ color }: any) => (color === "white" ? tw`text-white` : tw`text-black`)}
 `;
 
 const Image = styled.div`
@@ -23,13 +30,18 @@ const Image = styled.div`
   }
 `;
 
-const Logo = () => {
+const Logo = (props: ILogoProps) => {
+  const { color, bgColor } = props;
+
+  let CardLogoSrc = CardLogoImg;
+  bgColor === "dark" && (CardLogoSrc = CardLogoDarkImg);
+
   return (
     <LogoContainer>
       <Image>
-        <img src={CardLogoImg} alt="logo" />
+        <img src={CardLogoSrc} alt="Yourcar." />
       </Image>
-      <LogoText>Yourcar.</LogoText>
+      <LogoText color={color}>Yourcar.</LogoText>
     </LogoContainer>
   );
 };

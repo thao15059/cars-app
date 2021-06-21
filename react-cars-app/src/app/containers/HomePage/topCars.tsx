@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import Carousel, { slidesToShowPlugin } from "@brainhubeu/react-carousel";
@@ -26,6 +26,7 @@ const Title = styled.h2`
   lg:text-5xl
   text-black
   font-extrabold
+  mb-8
  `};
 `;
 
@@ -71,19 +72,15 @@ const cars = [
 ];
 
 const TopCars = () => {
-  const [current, setCurrent] = useState(0);
-
   return (
     <TopCarsContainer>
       <Title>Explore Our Top Deals</Title>
       <CarsContainer>
         <Carousel
-          value={current}
-          onChange={setCurrent}
           slides={cars}
           plugins={[
-            "infinite",
             "arrows",
+            "infinite",
             "clickToChange",
             {
               resolve: slidesToShowPlugin,
