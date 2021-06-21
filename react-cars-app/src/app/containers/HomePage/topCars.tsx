@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
+import Carousel, { slidesToShowPlugin } from "@brainhubeu/react-carousel";
+import "@brainhubeu/react-carousel/lib/style.css";
 import { ICar } from "../../../typing/car";
 import Car from "../../components/car";
 
@@ -60,14 +62,63 @@ const testCar2: ICar = {
   gas: "Petrol",
 };
 
+const cars = [
+  <Car {...testCar} />,
+  <Car {...testCar2} />,
+  <Car {...testCar} />,
+  <Car {...testCar2} />,
+  <Car {...testCar} />,
+];
+
 const TopCars = () => {
+  const [current, setCurrent] = useState(0);
+
   return (
     <TopCarsContainer>
       <Title>Explore Our Top Deals</Title>
       <CarsContainer>
-        <Car {...testCar} />
-        <Car {...testCar} />
-        <Car {...testCar2} />
+        <Carousel
+          value={current}
+          onChange={setCurrent}
+          slides={cars}
+          plugins={[
+            "infinite",
+            "arrows",
+            "clickToChange",
+            {
+              resolve: slidesToShowPlugin,
+              options: {
+                numberOfSlides: 3,
+              },
+            },
+          ]}
+          breakpoints={{
+            640: {
+              plugins: [
+                "infinite",
+                "arrows",
+                {
+                  resolve: slidesToShowPlugin,
+                  options: {
+                    numberOfSlides: 1,
+                  },
+                },
+              ],
+            },
+            900: {
+              plugins: [
+                "infinite",
+                "arrows",
+                {
+                  resolve: slidesToShowPlugin,
+                  options: {
+                    numberOfSlides: 2,
+                  },
+                },
+              ],
+            },
+          }}
+        />
       </CarsContainer>
     </TopCarsContainer>
   );

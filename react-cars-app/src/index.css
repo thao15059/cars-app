@@ -14,3 +14,7 @@ body,
 body {
   font-family: "Poppins", sans-serif;
 }
+
+.BrainhubCarousel__arrows {
+  background-color: rgb(239, 68, 68) !important;
+}
